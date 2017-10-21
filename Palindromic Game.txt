@@ -1,0 +1,45 @@
+Different from other and same in me.
+
+A
+1 1 -- A
+1 0 -- -1
+0 0 -- B
+0 1 -- B
+
+B
+lost
+-1
+win
+win
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+T=int(raw_input().strip())
+while(T>0):
+   
+    s=[i for i in raw_input()]
+    t=[j for j in raw_input()]
+    flag1=0
+    flag2=2
+    # Check in l1&l1 not in l2
+    l=len(s)
+    for i in xrange(l):
+        if s[i] not in t:
+            if (s[i] in s[:i] or s[i] in s[i+1:]):
+                flag1=1
+                break
+            else:
+                for j in xrange(l):
+                    if t[j] not in s:
+                        flag2=0
+                        break
+                    else:
+                        flag2=1
+    
+            
+    if flag1==1:
+        print "A"
+    elif flag2==1:
+        print "A"
+    else:
+        print "B"
+    T=T-1
